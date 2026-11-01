@@ -1,0 +1,61 @@
+{
+  "image_id": "ST_SAMPLE_001",
+  "dataset_source": "synthetic_example",
+  "licence_reference": null,
+  "training_permission": false,
+  "annotator_id": "reviewer_001",
+  "reviewed_at": null,
+  "regions": {
+    "forehead": {
+      "pigmentation": "mild",
+      "uneven_tone": "moderate",
+      "texture": "slight",
+      "visible_spots": {
+        "count": 2,
+        "mask_references": []
+      }
+    },
+    "left_cheek": {
+      "pigmentation": "absent",
+      "uneven_tone": "mild",
+      "texture": "smooth",
+      "visible_spots": {
+        "count": 0,
+        "mask_references": []
+      }
+    },
+    "right_cheek": {
+      "pigmentation": "mild",
+      "uneven_tone": "mild",
+      "texture": "slight",
+      "visible_spots": {
+        "count": 1,
+        "mask_references": []
+      }
+    },
+    "nose": {
+      "pigmentation": "absent",
+      "uneven_tone": "mild",
+      "texture": "moderate",
+      "visible_spots": {
+        "count": 0,
+        "mask_references": []
+      }
+    },
+    "chin": {
+      "pigmentation": "absent",
+      "uneven_tone": "absent",
+      "texture": "smooth",
+      "visible_spots": {
+        "count": 0,
+        "mask_references": []
+      }
+    }
+  },
+  "image_quality": {
+    "lighting": "even",
+    "blur": "acceptable",
+    "visibility": "clear"
+  },
+  "review_status": "pending"
+}

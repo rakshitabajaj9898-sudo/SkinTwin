@@ -218,3 +218,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local editor settings
+.vscode/
+
+# SkinTwin private data and model assets
+ai_engine/datasets/test_images/
+ai_engine/datasets/private/
+ai_engine/model_assets/
+ai_engine/checkpoints/
+
+# Local uploads and generated model files
+uploads/
+*.pth
+*.pt
+*.onnx
+
+# macOS
+.DS_Store
+
+# Environment files
+.env.*
+!.env.example
+backend/app/test_connection.py

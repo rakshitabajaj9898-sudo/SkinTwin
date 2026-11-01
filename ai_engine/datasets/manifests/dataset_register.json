@@ -1,0 +1,99 @@
+{
+  "project": "SkinTwin",
+  "register_version": "3.0",
+  "licensing_policy": {
+    "commercial_use_required": true,
+    "derivative_model_permission_required": true,
+    "redistribution_rights_required_for_published_weights": true,
+    "attribution_requirements_must_be_verified": true,
+    "licence_evidence_required": true,
+    "consent_and_privacy_review_required": true,
+    "unverified_resources_allowed_for_training": false
+  },
+  "datasets": [
+    {
+      "dataset_id": "SKINANALYSIS",
+      "name": "SkinAnalysis",
+      "access_status": "unverified",
+      "licence_name": null,
+      "commercial_use": "unverified",
+      "derivative_model_permission": "unverified",
+      "redistribution_permission": "unverified",
+      "attribution_required": "unverified",
+      "attribution_text": null,
+      "consent_status": "unverified",
+      "privacy_review_status": "pending",
+      "approval_status": "not_approved",
+      "licence_evidence": {
+        "source_url": "",
+        "licence_name": "",
+        "reviewed_by": "",
+        "reviewed_on": "",
+        "approval_notes": ""
+      }
+    },
+    {
+      "dataset_id": "SCIN",
+      "name": "SCIN Dataset",
+      "access_status": "available",
+      "licence_name": "SCIN Data Use License",
+      "commercial_use": "unverified",
+      "derivative_model_permission": "unverified",
+      "redistribution_permission": "unverified",
+      "attribution_required": "review_required",
+      "attribution_text": null,
+      "consent_status": "unverified",
+      "privacy_review_status": "pending",
+      "approval_status": "not_approved",
+      "licence_evidence": {
+        "source_url": "",
+        "licence_name": "SCIN Data Use License",
+        "reviewed_by": "",
+        "reviewed_on": "",
+        "approval_notes": ""
+      }
+    },
+    {
+      "dataset_id": "CELEBAMASKHQ",
+      "name": "CelebAMask-HQ",
+      "access_status": "research_access",
+      "licence_name": "Non-commercial research terms",
+      "commercial_use": "not_permitted_under_stated_terms",
+      "derivative_model_permission": "restricted",
+      "redistribution_permission": "restricted",
+      "attribution_required": "review_required",
+      "attribution_text": null,
+      "consent_status": "unverified",
+      "privacy_review_status": "pending",
+      "approval_status": "rejected",
+      "licence_evidence": {
+        "source_url": "",
+        "licence_name": "Non-commercial research terms",
+        "reviewed_by": "",
+        "reviewed_on": "",
+        "approval_notes": "Excluded under the current SkinTwin commercial-use policy."
+      }
+    },
+    {
+      "dataset_id": "SKINTWIN_INTERNAL",
+      "name": "SkinTwin Original Dataset",
+      "access_status": "not_created",
+      "licence_name": "To be established",
+      "commercial_use": "pending_rights_and_consent_review",
+      "derivative_model_permission": "pending",
+      "redistribution_permission": "pending",
+      "attribution_required": "to_define",
+      "attribution_text": null,
+      "consent_status": "pending",
+      "privacy_review_status": "pending",
+      "approval_status": "pending",
+      "licence_evidence": {
+        "source_url": "",
+        "licence_name": "",
+        "reviewed_by": "",
+        "reviewed_on": "",
+        "approval_notes": ""
+      }
+    }
+  ]
+}

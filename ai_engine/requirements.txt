@@ -1,0 +1,6 @@
+opencv-python
+numpy
+pandas
+pillow
+scikit-learn
+python-multipart

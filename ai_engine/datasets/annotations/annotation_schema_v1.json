@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkinTwin Image Annotation Schema",
+  "version": "1.0",
+  "type": "object",
+  "required": [
+    "image_id",
+    "dataset_source",
+    "training_permission",
+    "regions",
+    "image_quality",
+    "review_status"
+  ],
+  "properties": {
+    "image_id": {
+      "type": "string"
+    },
+    "dataset_source": {
+      "type": "string"
+    },
+    "licence_reference": {
+      "type": ["string", "null"]
+    },
+    "training_permission": {
+      "type": "boolean"
+    },
+    "annotator_id": {
+      "type": ["string", "null"]
+    },
+    "reviewed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "regions": {
+      "type": "object",
+      "required": [
+        "forehead",
+        "left_cheek",
+        "right_cheek",
+        "nose",
+        "chin"
+      ],
+      "properties": {
+        "forehead": { "$ref": "#/$defs/region" },
+        "left_cheek": { "$ref": "#/$defs/region" },
+        "right_cheek": { "$ref": "#/$defs/region" },
+        "nose": { "$ref": "#/$defs/region" },
+        "chin": { "$ref": "#/$defs/region" }
+      },
+      "additionalProperties": false
+    },
+    "image_quality": {
+      "type": "object",
+      "required": [
+        "lighting",
+        "blur",
+        "visibility"
+      ],
+      "properties": {
+        "lighting": {
+          "enum": [
+            "even",
+            "underexposed",
+            "overexposed",
+            "uneven",
+            "not_assessable"
+          ]
+        },
+        "blur": {
+          "enum": [
+            "acceptable",
+            "excessive",
+            "not_assessable"
+          ]
+        },
+        "visibility": {
+          "enum": [
+            "clear",
+            "partial",
+            "unsuitable"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "review_status": {
+      "enum": [
+        "pending",
+        "reviewed",
+        "approved",
+        "rejected"
+      ]
+    }
+  },
+  "$defs": {
+    "region": {
+      "type": "object",
+      "required": [
+        "pigmentation",
+        "uneven_tone",
+        "texture",
+        "visible_spots"
+      ],
+      "properties": {
+        "pigmentation": {
+          "$ref": "#/$defs/level"
+        },
+        "uneven_tone": {
+          "$ref": "#/$defs/level"
+        },
+        "texture": {
+          "enum": [
+            "smooth",
+            "slight",
+            "moderate",
+            "prominent",
+            "not_assessable"
+          ]
+        },
+        "visible_spots": {
+          "type": "object",
+          "required": ["count", "mask_references"],
+          "properties": {
+            "count": {
+              "type": ["integer", "null"],
+              "minimum": 0
+            },
+            "mask_references": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "level": {
+      "enum": [
+        "absent",
+        "mild",
+        "moderate",
+        "prominent",
+        "not_assessable"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
