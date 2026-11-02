@@ -2,6 +2,9 @@
 import csv
 from pathlib import Path
 
+from ai_engine.datasets.dataset_gate import check_dataset_approval
+
+
 REQUIRED_COLUMNS = {
     "image_id",
     "subject_id",
@@ -43,8 +46,10 @@ def validate_manifest(manifest_path: str) -> int:
         raise ValueError("Manifest contains no records.")
 
     seen_image_ids = set()
+    approved_datasets = set()
 
     for row_number, record in enumerate(records, start=2):
+
         for field in REQUIRED_COLUMNS:
             if not (record.get(field) or "").strip():
                 raise ValueError(
@@ -61,7 +66,9 @@ def validate_manifest(manifest_path: str) -> int:
         seen_image_ids.add(image_id)
 
         if record["split"].strip() not in ALLOWED_SPLITS:
-            raise ValueError(f"Row {row_number}: invalid split.")
+            raise ValueError(
+                f"Row {row_number}: invalid split."
+            )
 
         if record["consent_status"].strip() != "verified":
             raise PermissionError(
@@ -75,8 +82,14 @@ def validate_manifest(manifest_path: str) -> int:
 
         if record["approval_status"].strip() != "approved":
             raise PermissionError(
-                f"Row {row_number}: dataset is not approved."
+                f"Row {row_number}: manifest approval status is not approved."
             )
+
+        dataset_id = record["dataset_id"].strip()
+
+        if dataset_id not in approved_datasets:
+            check_dataset_approval(dataset_id)
+            approved_datasets.add(dataset_id)
 
     return len(records)
 
@@ -91,5 +104,6 @@ if __name__ == "__main__":
     try:
         count = validate_manifest(str(manifest))
         print(f"Manifest valid. Records checked: {count}")
+
     except (ValueError, PermissionError, FileNotFoundError) as error:
         print(f"Manifest validation failed: {error}")
